@@ -145,9 +145,6 @@ a {
 	max-width: 1345px;
 	height: 350px;
 	display: flex;
-	flex-direction: column; /* Change to column */
-	justify-content: center; /* Vertically center */
-	align-items: center; /* Horizontally center */
 	border: 3px solid rgb(var(--primary-rgb) / 80%);
 	aspect-ratio: 10 / 16;
 	border-radius: 1rem;
@@ -155,7 +152,6 @@ a {
 	overflow: hidden;
 	position: relative;
 	z-index: 10;
-	margin-top: 20px; /* Add margin for spacing */
   }
   
    .screen:after,
