@@ -80,6 +80,7 @@
 		margin-top: 10px;
 		justify-content: center;
 		align-items: center;
+		padding: 30px;
     }
 	.links a {
 		background-color: var(--primary100);
@@ -89,6 +90,7 @@
 		padding-block: 4px;
 		border-radius: 8px;
 		border: 2px solid rgb(102, 62, 2);
+		flex-grow: 1;
 	}
 	.links a:hover {
 		background-color: var(--primary400);
@@ -102,14 +104,13 @@
 		
 		.links {
 			display: flex;
-			flex-direction: column;
 			gap: 10px;
 			width: 100%;
 			align-items: center;
 		}
 
 		.links a{
-		    font-size: 15px;
+		    font-size: 10px;
 	    }
 	}
 </style>
