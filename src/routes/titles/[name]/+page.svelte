@@ -36,6 +36,7 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		z-index: 99;
 	}
 	.section div:first-child h4 {
 		color: var(--primary800);
