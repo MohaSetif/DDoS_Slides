@@ -46,7 +46,6 @@
 
 <div class="main">
     <div class="screen">  
-		<div class="screen-image"></div>  
 		<div class="screen-overlay"></div>  
 		<div class="screen-content">
 			<div class="screen-user">
@@ -78,13 +77,14 @@
     	display: flex;
         gap: 20px;
         flex-wrap: wrap;
-		margin: 30px;
+		margin: 10px;
 		justify-content: center;
 		align-items: center;
     }
 	.links a {
 		background-color: var(--primary100);
 		color: var(--primary800);
+		font-size: var(--h4);
 		padding-inline: 6px;
 		padding-block: 4px;
 		border-radius: 8px;
@@ -97,12 +97,19 @@
 	@media screen and (width <768px) {
 		.main {
 			flex-direction: column;
+			align-items: center;
 		}
+		
 		.links {
 			display: flex;
 			flex-direction: column;
 			gap: 10px;
-			width: 80%;
+			width: 100%;
+			align-items: center;
 		}
+
+		.links a{
+		    font-size: 17px;
+	    }
 	}
 </style>
