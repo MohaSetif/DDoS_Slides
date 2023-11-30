@@ -71,13 +71,13 @@
 		display: block;
 		justify-content: space-evenly;
 		align-items: center;
-		margin: 10px;
+		margin-top: 10px;
 	}
 	.links {
     	display: flex;
         gap: 20px;
         flex-wrap: wrap;
-		margin: 10px;
+		margin-top: 10px;
 		justify-content: center;
 		align-items: center;
     }
