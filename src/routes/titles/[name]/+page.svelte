@@ -13,7 +13,7 @@
 </script>
 
 <div class="section">
-	<div>
+	<div class="navbar">
 		<a href="/">DDoS</a>
 		<h4>{decodedLocation}</h4>
 		<div>
@@ -25,25 +25,30 @@
 			{/if}
 		</div>
 	</div>
-	{#key $page.url.pathname}
-		<Reveal mdFile={decodedLocation} />
-	{/key}
+	<div class="content">
+		{#key $page.url.pathname}
+			<Reveal mdFile={decodedLocation} />
+	    {/key}
+	</div>
 </div>
 
 <style>
 	.section {
-		width: 100vw;
-		height: 100vh;
 		display: flex;
 		flex-direction: column;
+	}
+	.navbar{
+		display: flex;
 		z-index: 99;
+		position: fixed;
+		background-color: transparent;
 	}
 	.section div:first-child h4 {
 		color: var(--primary800);
 	}
 	.section div:first-child {
 		width: 100%;
-		height: 100px;
+		padding: 10px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
