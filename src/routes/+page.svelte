@@ -71,7 +71,7 @@
 		display: block;
 		justify-content: space-evenly;
 		align-items: center;
-		margin-top: 10px;
+		padding: 10px;
 	}
 	.links {
     	display: flex;
