@@ -2,13 +2,12 @@
 	import { titles } from '$lib/deck/titles';
 	import { page } from '$app/stores';
 	import Reveal from '$lib/deck/reveal.svelte';
-	$: decodedLocation = '';
-	$: neigbors = findNeigbors($page.url.pathname);
-	function findNeigbors(pathname: string) {
-		let location = pathname.split('/').at(-1)!;
-		decodedLocation = decodeURIComponent(location);
-		const currentIndex = titles.indexOf(decodedLocation);
-		return [titles[currentIndex - 1], titles[currentIndex + 1]];
+	$: decodedLocation = $page.params.name;
+	$: neigbors = findNeigbors($page.params.name);
+	function findNeigbors(currentName: string) {
+		const currentIndex = titles.indexOf(currentName);
+		const neigbors = [titles[currentIndex - 1], titles[currentIndex + 1]];
+		return neigbors;
 	}
 </script>
 
@@ -26,56 +25,55 @@
 		</div>
 	</div>
 	<div class="content">
-		{#key $page.url.pathname}
+		{#key $page.params.name}
 			<Reveal mdFile={decodedLocation} />
-	    {/key}
+		{/key}
 	</div>
 </div>
 
 <style>
 	.section {
+		width: 100vw;
+		height: 100vh;
 		display: flex;
 		flex-direction: column;
 	}
-	.navbar{
-		display: flex;
-		z-index: 99;
-		position: fixed;
-		background-color: transparent;
-	}
-	.section div:first-child h4 {
+	.section .navbar h4 {
 		color: var(--primary800);
 	}
-	.section div:first-child {
+
+	.section .content {
 		width: 100%;
-		padding: 10px;
+		flex-grow: 1;
+	}
+
+	.section .navbar {
+		width: 100%;
+		height: 80px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding-inline: 5%;
 	}
 
-	.section > div > a {
+	.section .navbar > a {
 		font-size: var(--h3);
 	}
-	.section > div > div > a {
-		font-size: 1rem;
+	.section .navbar > div > a {
+		font-size: var(--h4);
 		margin-left: 10px;
-		gap: 10px;
+		padding-inline: 6px;
+		padding-block: 4px;
 	}
-	.section > div > div{
-		border: 1px solid rgb(39, 39, 39);
-		background-color: rgb(20, 20, 20);
-		padding: 5px;
-		padding-right: 15px;
-		border-radius: 20px;
-	}
-	.section > div > div > a:hover {
+	.section .navbar > div > a:hover {
+		background-color: var(--primary100);
 		color: var(--primary800);
+
+		border-radius: 8px;
 	}
 
 	@media screen and (width <768px) {
-		.section div:first-child h4 {
+		.section .navbar h4 {
 			display: none;
 		}
 	}
