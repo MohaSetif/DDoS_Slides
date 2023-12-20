@@ -1,57 +1,59 @@
 <script lang="ts">
 	import { titles } from '$lib/deck/titles';
 	import { onMount } from 'svelte';
-	import '../app.css';
+	import './home.css';
 
 	onMount(() => {
-		const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-		let interval: any = null;
+		let interval: number | null = null;
 
-		const screen: HTMLElement | null = document.querySelector(".screen");
-		const name: HTMLElement | null = document.querySelector(".name");
+		const screen: HTMLElement | null = document.querySelector('.screen');
+		const name: HTMLElement | null = document.querySelector('.name');
 
 		if (!screen || !name) {
 			return;
 		}
 
-		screen.onmouseenter = (event) => {
+		screen.onmouseenter = () => {
 			let iteration = 0;
 
 			clearInterval(interval);
 
 			interval = setInterval(() => {
-			if (name) {
-				name.innerText = name.innerText
-				.split("")
-				.map((letter, index) => {
-					if (index < iteration) {
-					return name.dataset.value ? name.dataset.value[index] : letter;
-					}
+				if (name) {
+					name.innerText = name.innerText
+						.split('')
+						.map((letter, index) => {
+							if (index < iteration) {
+								return name.dataset.value ? name.dataset.value[index] : letter;
+							}
 
-					return letters[Math.floor(Math.random() * 26)];
-				})
-				.join("");
-			}
+							return letters[Math.floor(Math.random() * 26)];
+						})
+						.join('');
+				}
 
-			if (iteration >= (name && name.dataset.value ? name.dataset.value.length : 0)) {
-				clearInterval(interval);
-			}
+				if (iteration >= (name && name.dataset.value ? name.dataset.value.length : 0)) {
+					clearInterval(interval);
+				}
 
-			iteration += 1 / 3;
+				iteration += 1 / 3;
 			}, 30);
 		};
-    });
+	});
 </script>
 
 <div class="main">
-    <div class="screen">  
-		<div class="screen-overlay"></div>  
+	<div class="screen">
+		<div class="screen-overlay" />
 		<div class="screen-content">
 			<div class="screen-user">
-			<span class="name" data-value="Distributed Denial of Service">Distributed Denial of Service</span>
-			<a class="link" href="/">Bourouba Med El Khalil</a>
-			<a class="link" href="/">Keskas Aymen Islam</a>
+				<span class="name" data-value="Distributed Denial of Service"
+					>Distributed Denial of Service</span
+				>
+				<a class="link" href="/">Bourouba Med El Khalil</a>
+				<a class="link" href="/">Keskas Aymen Islam</a>
 			</div>
 		</div>
 	</div>
@@ -74,14 +76,14 @@
 		padding: 10px;
 	}
 	.links {
-    	display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
 		margin-top: 10px;
 		justify-content: center;
 		align-items: center;
 		padding: 30px;
-    }
+	}
 	.links a {
 		background-color: var(--primary100);
 		color: var(--primary800);
@@ -101,7 +103,7 @@
 			flex-direction: column;
 			align-items: center;
 		}
-		
+
 		.links {
 			display: flex;
 			gap: 10px;
@@ -109,8 +111,8 @@
 			align-items: center;
 		}
 
-		.links a{
-		    font-size: 15px;
-	    }
+		.links a {
+			font-size: 15px;
+		}
 	}
 </style>
