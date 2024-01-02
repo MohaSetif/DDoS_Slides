@@ -47,10 +47,12 @@
 	.section .navbar {
 		width: 100%;
 		height: 80px;
-		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding-inline: 5%;
+		display: flex;
+		z-index: 99;
+		position: fixed;
 	}
 
 	.section div:first-child h4 {
