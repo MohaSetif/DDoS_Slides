@@ -7,6 +7,7 @@
 	import 'reveal.js/dist/theme/night.css';
 	import { onMount } from 'svelte';
 	export let mdFile = '';
+	console.log(`/sections/${mdFile}.md`)
 
 	onMount(() => {
 		const width = window.innerWidth;
@@ -23,7 +24,7 @@
 	<div class="slides">
 		<section
 			data-charset="iso-8859-15"
-			data-markdown="/titles/{mdFile}.md"
+			data-markdown="/sections/{mdFile}.md"
 			data-separator="^\n\n\n"
 			data-separator-vertical="^\n\n"
 		/>

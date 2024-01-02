@@ -7,6 +7,7 @@
 	function findNeigbors(pathname: string) {
 		let location = pathname.split('/').at(-1)!;
 		decodedLocation = decodeURIComponent(location);
+		
 		const currentIndex = titles.indexOf(decodedLocation);
 		return [titles[currentIndex - 1], titles[currentIndex + 1]];
 	}
@@ -37,6 +38,12 @@
 		display: flex;
 		flex-direction: column;
 	}
+
+	.section .content {
+		width: 100%;
+		flex-grow: 1;
+	}
+
 	.navbar{
 		display: flex;
 		z-index: 99;
