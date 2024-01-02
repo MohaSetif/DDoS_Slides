@@ -44,12 +44,15 @@
 		flex-grow: 1;
 	}
 
-	.navbar{
+	.section .navbar {
+		width: 100%;
+		height: 80px;
 		display: flex;
-		z-index: 99;
-		position: fixed;
-		background-color: transparent;
+		align-items: center;
+		justify-content: space-between;
+		padding-inline: 5%;
 	}
+
 	.section div:first-child h4 {
 		color: var(--primary800);
 	}
@@ -63,7 +66,7 @@
 	}
 
 	.section > div > a {
-		font-size: var(--h3);
+		font-size: var(--h4);
 	}
 	.section > div > div > a {
 		font-size: 1rem;
